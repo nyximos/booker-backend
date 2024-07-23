@@ -1,0 +1,25 @@
+server:
+  port: 10001
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/everycare?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: root0226
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+logging:
+  pattern:
+    console: "[%-5level] %d{yy-MM-dd HH:mm:ss} [%logger{0}:%line] - %msg%n"
+  level:
+    org:
+      springframework: DEBUG

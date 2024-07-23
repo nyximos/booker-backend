@@ -6,7 +6,7 @@ spring:
     name: user-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/everycare?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/booker?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: root0226
   jpa:

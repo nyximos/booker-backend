@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/apis/join")
+@RequestMapping("/user/apis/join")
 public class JoinController {
 
     private final JoinService joinService;

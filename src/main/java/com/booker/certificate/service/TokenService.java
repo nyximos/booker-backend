@@ -30,15 +30,15 @@ public class TokenService {
     private final ObjectMapper objectMapper;
     private final RefreshTokenDao refreshTokenDao;
 
-    public TokenModel issueToken(TokenDomain userTokenDomain) {
+    public TokenModel issueToken(TokenDomain tokenDomain) {
         TokenModel token = TokenModel
                 .builder()
-                .accessToken(tokenProvider.issueToken(getIssueTokenModel(userTokenDomain, TokenType.ACCESS_TOKEN), jwtExpireDuration))
-                .refreshToken(tokenProvider.issueToken(getIssueTokenModel(userTokenDomain, TokenType.REFRESH_TOKEN), refreshDuration))
+                .accessToken(tokenProvider.issueToken(getIssueTokenModel(tokenDomain, TokenType.ACCESS_TOKEN), jwtExpireDuration))
+                .refreshToken(tokenProvider.issueToken(getIssueTokenModel(tokenDomain, TokenType.REFRESH_TOKEN), refreshDuration))
                 .refreshDuration(refreshDuration)
                 .expireDate(LocalDateTime.now().plusNanos(jwtExpireDuration * 1000 * 1000))
                 .build();
-        refreshTokenDao.save(userTokenDomain.getId(), token.getRefreshToken(), token.getRefreshDuration());
+        refreshTokenDao.save(tokenDomain.getId(), token.getRefreshToken(), token.getRefreshDuration());
         return token;
     }
 

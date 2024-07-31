@@ -15,6 +15,6 @@ public interface UserConverter {
     @Mapping(target = "role", constant = "NORMAL_USER")
     UserEntity convert(JoinRequestModel source, String salt);
 
-//    @Mapping(target = "type", ignore = true)
+    @Mapping(target = "type", ignore = true)
     TokenDomain convertToTokenDomain(UserEntity source);
 }
